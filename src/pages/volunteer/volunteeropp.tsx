@@ -34,3 +34,5 @@ export function VolunteerOpportunities() {
     </section>
   );
 }
+
+export default VolunteerOpportunities;

@@ -1,4 +1,4 @@
-export function FinalCallToAction() {
+export default  function Cat() {
   return (
     <section className="py-24 px-6 bg-gray-900 text-white">
       <div className="max-w-4xl mx-auto text-center">

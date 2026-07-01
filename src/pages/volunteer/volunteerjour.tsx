@@ -33,3 +33,5 @@ export function VolunteerJourney() {
     </section>
   );
 }
+
+export default VolunteerJourney;

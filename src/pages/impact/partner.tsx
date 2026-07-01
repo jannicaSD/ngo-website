@@ -33,3 +33,5 @@ export function Partners() {
     </section>
   );
 }
+
+export default Partners;

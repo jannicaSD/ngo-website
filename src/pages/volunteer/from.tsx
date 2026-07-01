@@ -53,3 +53,5 @@ export function Form() {
     </section>
   );
 }
+
+export default Form;

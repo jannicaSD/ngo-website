@@ -56,3 +56,5 @@ export function Transparency() {
     </section>
   );
 }
+
+export default Transparency;

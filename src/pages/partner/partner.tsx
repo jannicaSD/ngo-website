@@ -26,3 +26,5 @@ export function WhyPartner() {
     </section>
   );
 }
+
+export default WhyPartner;

@@ -26,3 +26,5 @@ export function WhyJoinUs() {
     </section>
   );
 }
+
+export default WhyJoinUs;

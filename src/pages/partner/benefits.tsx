@@ -29,3 +29,5 @@ export function PartnerBenefits() {
     </section>
   );
 }
+
+export default PartnerBenefits;

@@ -45,3 +45,5 @@ export function WhyGiftMatters() {
     </section>
   );
 }
+
+export default WhyGiftMatters;

@@ -1,4 +1,4 @@
-export function ProfessionalDonationForm() {
+export default function ProfessionalDonationForm() {
   return (
     <section className="py-24 px-6 bg-white">
       <div className="max-w-2xl mx-auto">

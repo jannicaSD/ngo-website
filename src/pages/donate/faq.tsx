@@ -1,6 +1,6 @@
 import { ShieldCheck, Target, Building2, PieChart, Bell, ChevronRight } from "lucide-react";
 
-export function DonationFAQ() {
+export  default function DonationFAQ() {
   const faqs = [
     { 
       q: "Is my donation secure?", 

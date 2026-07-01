@@ -1,6 +1,6 @@
 import { FileText, PieChart, ShieldCheck, ArrowRight } from "lucide-react";
 
-export function TransparencyCommitment() {
+export default function TransparencyCommitment() {
   const resources = [
     { title: "Annual Reports", icon: FileText, desc: "Comprehensive overview of our yearly impact." },
     { title: "Financial Reports", icon: PieChart, desc: "Detailed breakdown of fund utilization." },

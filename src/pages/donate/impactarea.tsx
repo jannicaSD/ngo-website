@@ -29,3 +29,5 @@ export function ImpactAreas() {
     </section>
   );
 }
+
+export default ImpactAreas;

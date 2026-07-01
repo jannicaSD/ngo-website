@@ -38,3 +38,5 @@ export function PartnerOpportunities() {
     </section>
   );
 }
+
+export default PartnerOpportunities;

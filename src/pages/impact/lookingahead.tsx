@@ -55,3 +55,5 @@ export function LookingAhead() {
     </section>
   );
 }
+
+export default LookingAhead;

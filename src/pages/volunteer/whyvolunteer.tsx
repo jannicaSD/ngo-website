@@ -17,3 +17,5 @@ export function WhyVolunteer() {
     </section>
   );
 }
+
+export default WhyVolunteer;

@@ -15,3 +15,5 @@ export function WhyPartnerWithUs() {
     </section>
   );
 }
+
+export default WhyPartnerWithUs;

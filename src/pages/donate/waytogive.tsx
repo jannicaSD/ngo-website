@@ -1,4 +1,4 @@
-export function WaysToGive() {
+export default function WaysToGive() {
   const methods = [
     "One-Time Donation", "Monthly Giving", "Project Sponsorship", 
     "Education Sponsorship", "Healthcare Support", "Community Development Fund", 

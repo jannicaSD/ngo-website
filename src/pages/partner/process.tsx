@@ -22,3 +22,5 @@ export function PartnershipProcess() {
     </section>
   );
 }
+
+export default PartnershipProcess;
