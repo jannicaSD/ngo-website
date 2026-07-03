@@ -32,7 +32,7 @@ export default function Edu() {
               <div className="relative pl-6 py-2">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-green-600 rounded-full" />
                 <p className="font-medium text-gray-900 italic">
-                  "Our goal is to equip individuals with the knowledge, confidence, and values that prepare them for meaningful, self-sustaining futures."
+                  &quot;Our goal is to equip individuals with the knowledge, confidence, and values that prepare them for meaningful, self-sustaining futures.&quot;
                 </p>
               </div>
             </div>

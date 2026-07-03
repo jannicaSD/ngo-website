@@ -13,6 +13,7 @@ export default function Index() {
   return (
     <>  
 
+      <Navbar />
       <Hero />
       <WhyGiftMatters />
       <ImpactAreas />

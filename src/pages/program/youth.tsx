@@ -39,7 +39,7 @@ export default function Youth() {
               Youth Development
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
-              Developing <br /> Tomorrow's Leaders
+              Developing <br /> Tomorrow&apos;s Leaders
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed font-light">
               Young people are the future of every community. Through leadership training, education, mentorship, and faith-based values, Parakletus equips youth to become responsible leaders and active citizens.
@@ -51,7 +51,7 @@ export default function Youth() {
                 <span className="w-2 h-2 rounded-full bg-green-500" /> Our Vision
               </h4>
               <p className="text-gray-300 italic text-lg leading-relaxed">
-                "We don't just prepare youth for the future; we provide them the platform to build it today."
+                &quot;We don&apos;t just prepare youth for the future; we provide them the platform to build it today.&quot;
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { ShieldCheck, Target, Building2, PieChart, Bell, ChevronRight } from "lucide-react";
+import { ShieldCheck, Target, Building2, PieChart, Bell } from "lucide-react";
 
 export  default function DonationFAQ() {
   const faqs = [

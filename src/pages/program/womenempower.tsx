@@ -29,7 +29,7 @@ export default function WomenEmpower() {
             
             <div className="p-6 bg-white rounded-2xl border border-rose-100 shadow-sm">
               <p className="text-gray-800 font-medium italic">
-                "When a woman is empowered, she transforms not just her family, but her entire community."
+                &quot;When a woman is empowered, she transforms not just her family, but her entire community.&quot;
               </p>
             </div>
           </div>

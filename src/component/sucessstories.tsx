@@ -33,7 +33,7 @@ export default function SuccessStories() {
                 {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
               </div>
               
-              <p className="text-lg text-gray-600 italic leading-relaxed mb-8">"{story.quote}"</p>
+              <p className="text-lg text-gray-600 italic leading-relaxed mb-8">&quot;{story.quote}&quot;</p>
               
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700">

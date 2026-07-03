@@ -19,7 +19,7 @@ export function Testimonials() {
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((t, i) => (
             <div key={i} className="p-8 bg-gray-50 rounded-3xl border border-gray-100 italic">
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">"{t.quote}"</p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">&quot;{t.quote}&quot;</p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700">
                   {t.name[0]}

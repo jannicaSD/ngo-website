@@ -33,7 +33,7 @@ export default function HealthcareS() {
               <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
                 <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-green-600" />
                 <p className="font-semibold text-gray-900 leading-relaxed">
-                  "Our mission is to bridge the gap in medical accessibility, ensuring that families in vulnerable situations receive the essential care they deserve."
+                  &quot;Our mission is to bridge the gap in medical accessibility, ensuring that families in vulnerable situations receive the essential care they deserve.&quot;
                 </p>
               </div>
             </div>

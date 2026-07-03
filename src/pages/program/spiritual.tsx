@@ -30,7 +30,7 @@ export default function Spiritual() {
             
             <div className="bg-green-50 p-8 rounded-2xl border border-green-100 relative overflow-hidden">
               <p className="font-semibold text-green-900 italic leading-relaxed">
-                "Our initiatives aim to cultivate hearts committed to serving others, grounded in the timeless values of biblical leadership."
+                &quot;Our initiatives aim to cultivate hearts committed to serving others, grounded in the timeless values of biblical leadership.&quot;
               </p>
             </div>
           </div>

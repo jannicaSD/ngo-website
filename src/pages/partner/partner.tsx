@@ -1,4 +1,4 @@
-import { Target, TrendingUp, Users } from "lucide-react";
+// icon imports removed because not used in this module
 
 export function WhyPartner() {
   const benefits = [

@@ -1,37 +1,69 @@
-import Link from "next/link";
-import { 
-  MapPin, Phone, Mail, Clock, AlertTriangle, Send, 
-  Facebook, Linkedin, Youtube, Instagram, ChevronDown,
-  Scale, GraduationCap, Heart, Users, Handshake, HeartHandshake, ShieldCheck
-} from "lucide-react";
+import { MapPin, Phone, Mail, Clock, AlertCircle } from "lucide-react";
 
-export default function Details() {
-  const departments = [
-    { name: "Legal Advocacy", icon: Scale, desc: "Constitutional & human rights support" },
-    { name: "Education Programs", icon: GraduationCap, desc: "Scholarships & literacy coordination" },
-    { name: "Healthcare Programs", icon: Heart, desc: "Medical camps & family care initiatives" },
-    { name: "Community Development", icon: Users, desc: "Sustainable growth & local infrastructure" },
-    { name: "Volunteer Coordination", icon: HeartHandshake, desc: "Mobilizing change-makers across Pakistan" },
-    { name: "Partnerships", icon: Handshake, desc: "Church alliances & organizational relations" },
-    { name: "Donor Relations", icon: ShieldCheck, desc: "Transparency & strategic fund stewardship" },
-  ];
-
+export default function ContactDetails() {
   return (
-    <div className="bg-[#05100a] text-white min-h-screen font-sans overflow-x-hidden">
+    <section className="pt-0 pb-20 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          {/* Office Address */}
+          <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+              <MapPin className="text-green-700" size={24} />
+            </div>
+            <h3 className="font-bold text-slate-900 mb-2">Visit Our Office</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Parakletus – Christian Lawyers & Churches of Pakistan<br />
+              Registered NGO<br />
+              Punjab, Pakistan
+            </p>
+          </div>
 
- 
-      {/* 8. CLOSING STATEMENT STATEMENT BLOCK */}
-      <section className="py-24 px-6 text-center relative overflow-hidden bg-gradient-to-t from-[#020704] to-[#030a06]">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-green-500/5 blur-[100px] rounded-full pointer-events-none" />
-        <div className="max-w-3xl mx-auto relative z-10 space-y-6">
-          <span className="text-xs tracking-[0.3em] font-bold uppercase text-green-500 font-mono">Serving Communities with Justice, Compassion, and Hope</span>
-          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed">
-            We believe meaningful relationships begin with conversation. Whether you are an individual, church, organization, volunteer, or donor, we look forward to working together to build stronger communities and create lasting change across Pakistan.
-          </p>
-          <div className="w-12 h-1 bg-green-600 rounded-full mx-auto mt-8" />
+          {/* Contact Numbers */}
+          <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+              <Phone className="text-green-700" size={24} />
+            </div>
+            <h3 className="font-bold text-slate-900 mb-2">Phone</h3>
+            <p className="text-sm text-slate-600">+92 XXX XXXXXXX</p>
+          </div>
+
+          {/* Email */}
+          <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+              <Mail className="text-green-700" size={24} />
+            </div>
+            <h3 className="font-bold text-slate-900 mb-2">Email</h3>
+            <div className="text-sm text-slate-600 space-y-1">
+              <a href="mailto:info@parakletus.org" className="block hover:text-green-700 transition-colors">info@parakletus.org</a>
+              <a href="mailto:support@parakletus.org" className="block hover:text-green-700 transition-colors">support@parakletus.org</a>
+            </div>
+          </div>
+
+          {/* Hours & Emergency */}
+          <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+              <Clock className="text-green-700" size={24} />
+            </div>
+            <h3 className="font-bold text-slate-900 mb-2">Office Hours</h3>
+            <p className="text-sm text-slate-600">
+              Mon – Fri: 9:00 AM – 5:00 PM
+            </p>
+          </div>
+
         </div>
-      </section>
 
-    </div>
+        {/* Emergency Banner */}
+        <div className="mt-12 p-8 bg-green-600 rounded-3xl flex flex-col md:flex-row items-center gap-6 text-white shadow-xl shadow-green-600/20">
+          <AlertCircle size={48} className="shrink-0" />
+          <div>
+            <h3 className="font-bold text-xl mb-2">Emergency Assistance</h3>
+            <p className="text-green-50 text-sm opacity-90 leading-relaxed">
+              For urgent humanitarian or legal matters, please contact our support team during our regular office hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

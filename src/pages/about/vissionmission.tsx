@@ -15,7 +15,7 @@ export default function VisionMission() {
             A Future Defined by <br /> Dignity & Hope
           </h2>
           <p className="relative text-lg text-gray-600 leading-relaxed italic border-l-2 border-green-500 pl-6">
-            "A society where every individual experiences dignity, justice, opportunity, and hope, living in communities strengthened by compassion, equality, and Christian values."
+            &quot;A society where every individual experiences dignity, justice, opportunity, and hope, living in communities strengthened by compassion, equality, and Christian values.&quot;
           </p>
         </div>
 

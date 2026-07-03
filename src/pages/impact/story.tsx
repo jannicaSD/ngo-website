@@ -23,7 +23,7 @@ export default function Story() {
                 {story.title}
               </div>
               <p className="text-xl text-gray-700 italic leading-relaxed font-light mb-8">
-                "{story.quote}"
+                &quot;{story.quote}&quot;
               </p>
               {/* Decorative indicator */}
               <div className="h-1 w-12 bg-green-500 rounded-full group-hover:w-20 transition-all duration-500" />
