@@ -11,8 +11,7 @@ import WhyGiftMatters from "./whygiftmatter";
 
 export default function Index() {
   return (
-    <>
-      <Navbar />
+    <>  
 
       <Hero />
       <WhyGiftMatters />

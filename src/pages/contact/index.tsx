@@ -1,17 +1,22 @@
 import Footer from "../../component/footer";
 import Navbar from "../../component/navbar";
+import ContactHero from "./hero";
+import ContactInfo from "./contactinfo";
+import OfficeHours from "./officehours";
+import Department from "./dep";
+import Details from "./details";
 
 export default function Index() {
   return (
-    <>
-      <Navbar />
+<> 
 
-      <main className="py-44 text-center">
-        <h1 className="text-4xl font-bold">Contact Us</h1>
-        <p>Coming Soon</p>
-      </main>
+    <Navbar />
+
 
       <Footer />
-    </>
+      
+       </>
+  
+
   );
 }
