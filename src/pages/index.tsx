@@ -13,6 +13,7 @@ import SuccessStories from "../component/sucessstories";
 import LatestNews from "../component/latest-news";
 import Partners from "../component/partner";
 import CTASection from "../component/cat"; // Fixed naming convention
+import VoiceGuide from "../component/VoiceGuide";
 
 export default function Index() {
   return (
@@ -50,6 +51,7 @@ export default function Index() {
       <CTASection />
 
       <Footer />
+      <VoiceGuide />
     </main>
   );
 }
