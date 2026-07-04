@@ -12,6 +12,13 @@ export default function VoiceGuide() {
 
   useEffect(() => {
     try {
+      // allow forcing the guide via URL param for testing: ?vg=1
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("vg") === "1") {
+        // show quickly for testing
+        timerRef.current = window.setTimeout(() => setShow(true), 200);
+        return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+      }
       const suppressed = localStorage.getItem("voiceGuideSuppressUntil");
       const suppressForever = localStorage.getItem("voiceGuideSuppressForever");
       const seen = localStorage.getItem("voiceGuideSeen");
