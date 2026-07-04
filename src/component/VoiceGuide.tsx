@@ -7,14 +7,20 @@ export default function VoiceGuide() {
   const [show, setShow] = useState(false);
   const [playerOpen, setPlayerOpen] = useState(false);
   const [dontShow, setDontShow] = useState(false);
+  const [suppressedForever, setSuppressedForever] = useState(false);
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     try {
       const suppressed = localStorage.getItem("voiceGuideSuppressUntil");
+      const suppressForever = localStorage.getItem("voiceGuideSuppressForever");
       const seen = localStorage.getItem("voiceGuideSeen");
       const now = Date.now();
-      if (suppressed && Number(suppressed) > now) return; // suppressed
+      if (suppressForever) {
+        setSuppressedForever(true);
+        return;
+      }
+      if (suppressed && Number(suppressed) > now) return; // suppressed for 30 days
       if (seen) return; // already shown
 
       // wait until 5s after load
@@ -37,6 +43,10 @@ export default function VoiceGuide() {
       const until = Date.now() + 30 * 24 * 60 * 60 * 1000;
       try { localStorage.setItem("voiceGuideSuppressUntil", String(until)); } catch {}
     }
+    if (dontShow) {
+      // user chose persistent prefererence via checkbox
+      try { localStorage.setItem("voiceGuideSuppressForever", "1"); setSuppressedForever(true); } catch {}
+    }
   };
 
   const openPlayer = () => {
@@ -52,8 +62,6 @@ export default function VoiceGuide() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
-
-  if (!show && !playerOpen) return null;
 
   return (
     <>
@@ -89,6 +97,17 @@ export default function VoiceGuide() {
       {playerOpen && (
         <VoicePlayer src="/voice.mp3" autoPlay onClose={() => setPlayerOpen(false)} />
       )}
+
+      {/* Persistent trigger button so visitors can replay the Voice Guide */}
+      <button
+        aria-label="Open Voice Guide"
+        title="Voice Guide"
+        onClick={() => setPlayerOpen(true)}
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-blue-900 text-white flex items-center justify-center shadow-lg hover:scale-105 transition"
+      >
+        <span className="sr-only">Open Voice Guide</span>
+        🎧
+      </button>
     </>
   );
 }
