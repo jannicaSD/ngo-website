@@ -30,7 +30,7 @@ export default function Impact() {
           <div className="relative group">
             <div className="absolute inset-0 bg-green-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <img 
-              src="/image_322083.jpg" 
+              src="whoweare.jpg" 
               alt="Community Impact" 
               className="rounded-3xl shadow-2xl w-full object-cover h-[500px]" 
             />

@@ -102,7 +102,7 @@ export default function VoiceGuide() {
       )}
 
       {playerOpen && (
-        <VoicePlayer src="/voice.mp3" autoPlay onClose={() => setPlayerOpen(false)} />
+        <VoicePlayer src="voice.mp3" autoPlay onClose={() => setPlayerOpen(false)} />
       )}
 
       {/* Persistent trigger button so visitors can replay the Voice Guide */}

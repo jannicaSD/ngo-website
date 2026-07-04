@@ -7,7 +7,7 @@ import Navbar from "./navbar";
 
 const slides = [
   {
-    image: "/slide-1.jpg",
+    image: "slide-1.jpg",
     headline: "Justice with Compassion.",
     text: "Providing legal advocacy, human rights protection, and community development for vulnerable communities across Pakistan.",
     // Change #about to /about
@@ -16,7 +16,7 @@ const slides = [
     secondary: { label: "Get Legal Support", href: "/contact" }, 
   },
   {
-    image: "/slide-2.jpg",
+    image: "slide-2.jpg",
     headline: "Building Hope Through Action",
     text: "Empowering communities through education, legal awareness, and sustainable development.",
     // Change #programs to /program
@@ -25,7 +25,7 @@ const slides = [
     secondary: { label: "Volunteer", href: "/volunteer" }, 
   },
   {
-    image: "/slide-3.jpg",
+    image: "slide-3.jpg",
     headline: "Serving Together.",
     text: "Connecting churches, lawyers, volunteers, and communities to promote justice, dignity, and peace.",
     // Change #contact to /partner
