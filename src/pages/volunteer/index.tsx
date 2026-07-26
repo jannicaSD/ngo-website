@@ -1,7 +1,7 @@
 import Footer from "../../component/footer";
 import Navbar from "../../component/navbar";
 import { FAQ } from "./faq";
-import { Form } from "./from";
+import Form from "./from";
 import { Hero } from "./hero";
 import { Testimonials } from "./testimonial";
 import { VolunteerJourney } from "./volunteerjour";
