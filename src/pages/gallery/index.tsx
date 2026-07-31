@@ -8,56 +8,97 @@ import { Play } from "lucide-react";
 const documentaries = [
   {
     id: 1,
-    title: "Community Outreach",
     image: "/g18.jpeg",
     link: "#",
   },
   {
     id: 2,
-    title: "Healthcare Mission",
     image: "/g19.jpeg",
     link: "#",
   },
   {
     id: 3,
-    title: "Education Program",
     image: "/g20.jpeg",
     link: "#",
   },
   {
     id: 4,
-    title: "Women's Empowerment",
-    image: "/g21.jpeg",
-    link: "#",
-  },
-  {
-    id: 5,
-    title: "Humanitarian Relief",
     image: "/g22.jpeg",
     link: "#",
   },
   {
-    id: 6,
-    title: "Youth Leadership",
+    id: 5,
     image: "/g23.jpeg",
     link: "#",
   },
   {
-    id: 7,
-    title: "Legal Aid Camp",
+    id: 6,
     image: "/g2.jpeg",
     link: "#",
   },
   {
-    id: 8,
-    title: "Children Education",
+    id: 7,
     image: "/g10.jpeg",
     link: "#",
   },
   {
-    id: 9,
-    title: "Food Distribution",
+    id: 8,
     image: "/g21.jpeg",
+    link: "#",
+  },
+  {
+    id: 9,
+    image: "/g18.jpeg",
+    link: "#",
+  },
+  {
+    id: 10,
+    image: "/g19.jpeg",
+    link: "#",
+  },
+  {
+    id: 11,
+    image: "/g20.jpeg",
+    link: "#",
+  },
+  {
+    id: 12,
+    image: "/g24.jpeg",
+    link: "#",
+  },
+  {
+    id: 13,
+    image: "/g25.jpeg",
+    link: "#",
+  },
+  {
+    id: 14,
+    image: "/g26.jpeg",
+    link: "#",
+  },
+  {
+    id: 15,
+    image: "/g27.jpeg",
+    link: "#",
+  },
+  {
+    id: 16,
+    image: "/g28.jpeg",
+    link: "#",
+  },
+  {
+    id: 17,
+    image: "/g29.jpeg",
+    link: "#",
+  },
+  {
+    id: 18,
+    image: "/g30.jpeg",
+    link: "#",
+  },
+  {
+    id: 19,
+    image: "/g31.jpeg",
     link: "#",
   },
 ];
@@ -74,7 +115,12 @@ const categories = [
 ];
 
 export default function MediaGallery() {
-  const [visibleImages, setVisibleImages] = useState(6);
+  // Initialized to 3 so it shows precisely one row (3 items) initially
+  const [visibleImages, setVisibleImages] = useState(3);
+
+  const handleLoadMore = () => {
+    setVisibleImages((prev) => Math.min(prev + 3, documentaries.length));
+  };
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -103,7 +149,7 @@ export default function MediaGallery() {
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-5 py-2 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-green-600 hover:text-green-700 transition shadow-sm"
+                className="px-5 py-2 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-green-600 hover:text-green-700 transition shadow-sm cursor-pointer"
               >
                 {category}
               </button>
@@ -136,7 +182,7 @@ export default function MediaGallery() {
                   learning, and leadership.
                 </p>
 
-                <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-semibold transition">
+                <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-semibold transition cursor-pointer">
                   Read Full Story
                 </button>
               </div>
@@ -156,27 +202,23 @@ export default function MediaGallery() {
                 <a
                   href={video.link}
                   key={video.id}
-                  className="group relative h-72 rounded-3xl overflow-hidden shadow-lg"
+                  className="group relative h-72 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 block bg-slate-200"
                 >
                   <img
                     src={video.image}
-                    alt={video.title}
-                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                    alt="Gallery item"
+                    className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  {/* Clean gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
-                  <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-                    <div>
-                      <h3 className="text-white text-xl font-bold">
-                        {video.title}
-                      </h3>
-                    </div>
-
-                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                  {/* Minimal professional play button centered/positioned */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg transform scale-95 group-hover:scale-110 transition-all duration-300">
                       <Play
-                        size={20}
-                        className="text-green-700 fill-green-700"
+                        size={22}
+                        className="text-green-700 fill-green-700 ml-0.5"
                       />
                     </div>
                   </div>
@@ -184,14 +226,15 @@ export default function MediaGallery() {
               ))}
             </div>
 
-            {/* See More */}
+            {/* Professional See More Button */}
             {visibleImages < documentaries.length && (
-              <div className="flex justify-center mt-14">
+              <div className="flex justify-center mt-16">
                 <button
-                  onClick={() => setVisibleImages((prev) => prev + 3)}
-                  className="px-8 py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold transition shadow-lg"
+                  onClick={handleLoadMore}
+                  className="group relative inline-flex items-center gap-3 px-9 py-4 rounded-2xl bg-white border border-slate-200 text-slate-800 font-semibold hover:border-green-600 hover:text-green-700 hover:bg-green-50/50 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
                 >
-                  See More
+                  <span>See More Stories</span>
+                  <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
                 </button>
               </div>
             )}

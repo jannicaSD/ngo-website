@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const newsItems = [
@@ -7,21 +8,21 @@ const newsItems = [
     date: "July 02, 2026",
     title: "Advocating for Constitutional Rights in Punjab",
     summary: "Our legal team successfully concluded the latest advocacy session regarding human rights protections in local districts.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqErhkb4S00yN9LT7yNeKTxLSBA_1lzXH5J1RsnacpesJJiS31srdzibJy&s=10"
+    image: "/g5.jpeg" // Place your image in public/images/news/human-rights.jpg
   },
   {
     category: "Education",
     date: "June 28, 2026",
     title: "Literacy Initiative Expansion",
     summary: "Empowering 500+ students through our new digital literacy and scholarship coordination programs.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800"
+    image: "/g17.jpeg" // Place your image in public/images/news/education.jpg
   },
   {
     category: "Healthcare",
     date: "June 25, 2026",
     title: "Medical Camps: Family Care Initiatives",
     summary: "Providing essential medical services to underserved communities, focusing on maternal and pediatric family health.",
-    image: "https://images.stockcake.com/public/8/8/1/8819badf-cfed-4fff-a19c-da2f80755ba7_medium/rural-medical-camp-stockcake.jpg"
+    image: "/g18.jpeg" // Place your image in public/images/news/healthcare.jpg
   }
 ];
 
@@ -46,17 +47,19 @@ export default function NewsGrid() {
           {newsItems.map((item, idx) => (
             <article 
               key={idx} 
-              className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+              className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col"
             >
-              <div className="h-56 overflow-hidden">
-                <img 
+              <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                <Image 
                   src={item.image} 
                   alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
-              <div className="p-8">
+              <div className="p-8 flex flex-col flex-grow">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full">
                     {item.category}
@@ -67,11 +70,11 @@ export default function NewsGrid() {
                 <h3 className="text-xl font-bold text-slate-900 mb-4 leading-snug group-hover:text-green-700 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
                   {item.summary}
                 </p>
 
-                <Link href="#" className="inline-flex items-center gap-2 text-sm font-bold text-green-700 hover:gap-3 transition-all">
+                <Link href="#" className="inline-flex items-center gap-2 text-sm font-bold text-green-700 hover:gap-3 transition-all mt-auto">
                   Read Full Story <ArrowRight size={16} />
                 </Link>
               </div>
