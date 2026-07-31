@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 
 export default function PartnershipForm() {
   const [formData, setFormData] = useState({
@@ -8,18 +9,18 @@ export default function PartnershipForm() {
     contactPerson: "",
     email: "",
     phone: "",
-    partnershipInterest: "Partnership Interest...",
+    partnershipInterest: "Corporate Sponsorship",
     message: "",
   });
 
   const [status, setStatus] = useState({
     loading: false,
-    error: "",
     success: "",
+    error: "",
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({
       ...formData,
@@ -27,13 +28,13 @@ export default function PartnershipForm() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setStatus({
       loading: true,
-      error: "",
       success: "",
+      error: "",
     });
 
     try {
@@ -48,14 +49,13 @@ export default function PartnershipForm() {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || "Something went wrong.");
+        throw new Error(data.error || "Something went wrong");
       }
 
       setStatus({
         loading: false,
+        success: "Partnership request submitted successfully!",
         error: "",
-        success:
-          "Your partnership inquiry has been submitted successfully! Our team will contact you soon.",
       });
 
       setFormData({
@@ -63,14 +63,14 @@ export default function PartnershipForm() {
         contactPerson: "",
         email: "",
         phone: "",
-        partnershipInterest: "Partnership Interest...",
+        partnershipInterest: "Corporate Sponsorship",
         message: "",
       });
-    } catch (err: any) {
+    } catch (error) {
       setStatus({
         loading: false,
-        error: err.message,
         success: "",
+        error: error instanceof Error ? error.message : "Something went wrong",
       });
     }
   };
@@ -78,152 +78,108 @@ export default function PartnershipForm() {
   return (
     <section className="py-24 px-6 bg-white">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
+
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900">
             Partnership Inquiry
           </h2>
 
-          <p className="text-gray-500 font-light">
-            We'd love to explore how we can work together to create lasting
-            impact. Complete the form below and our team will get back to you
-            shortly.
+          <p className="text-gray-500 mt-3">
+            We'd love to collaborate with your organization.
           </p>
         </div>
 
         {status.success && (
-          <div className="mb-6 p-4 rounded-xl border border-green-200 bg-green-50 text-green-700 text-center font-medium">
+          <div className="mb-6 rounded-xl bg-green-50 border border-green-200 p-4 text-green-700">
             {status.success}
           </div>
         )}
 
         {status.error && (
-          <div className="mb-6 p-4 rounded-xl border border-red-200 bg-red-50 text-red-700 text-center font-medium">
+          <div className="mb-6 rounded-xl bg-red-50 border border-red-200 p-4 text-red-700">
             {status.error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-wider font-bold text-gray-700">
-                Organization Name
-              </label>
 
-              <input
-                type="text"
-                name="organizationName"
-                value={formData.organizationName}
-                onChange={handleChange}
-                required
-                placeholder="ABC Foundation"
-                className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl outline-none transition-all focus:border-green-500 text-gray-900"
-              />
-            </div>
+          <input
+            type="text"
+            name="organizationName"
+            placeholder="Organization Name"
+            value={formData.organizationName}
+            onChange={handleChange}
+            required
+            className="w-full rounded-xl border p-4"
+          />
 
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-wider font-bold text-gray-700">
-                Contact Person
-              </label>
+          <input
+            type="text"
+            name="contactPerson"
+            placeholder="Contact Person"
+            value={formData.contactPerson}
+            onChange={handleChange}
+            required
+            className="w-full rounded-xl border p-4"
+          />
 
-              <input
-                type="text"
-                name="contactPerson"
-                value={formData.contactPerson}
-                onChange={handleChange}
-                required
-                placeholder="John Smith"
-                className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl outline-none transition-all focus:border-green-500 text-gray-900"
-              />
-            </div>
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="w-full rounded-xl border p-4"
+          />
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-wider font-bold text-gray-700">
-                Email Address
-              </label>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className="w-full rounded-xl border p-4"
+          />
 
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder="organization@example.com"
-                className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl outline-none transition-all focus:border-green-500 text-gray-900"
-              />
-            </div>
+          <select
+            name="partnershipInterest"
+            value={formData.partnershipInterest}
+            onChange={handleChange}
+            className="w-full rounded-xl border p-4"
+          >
+            <option value="Corporate Sponsorship">
+              Corporate Sponsorship
+            </option>
 
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-wider font-bold text-gray-700">
-                Phone Number
-              </label>
+            <option value="Joint Project">
+              Joint Project
+            </option>
 
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                placeholder="+92 300 0000000"
-                className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl outline-none transition-all focus:border-green-500 text-gray-900"
-              />
-            </div>
-          </div>
+            <option value="Church/NGO Collaboration">
+              Church/NGO Collaboration
+            </option>
+          </select>
 
-          <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-wider font-bold text-gray-700">
-              Partnership Interest
-            </label>
-
-            <select
-              name="partnershipInterest"
-              value={formData.partnershipInterest}
-              onChange={handleChange}
-              required
-              className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl outline-none transition-all focus:border-green-500 text-gray-700"
-            >
-              <option disabled>Partnership Interest...</option>
-
-              <option value="Corporate Sponsorship">
-                Corporate Sponsorship
-              </option>
-
-              <option value="Joint Project">
-                Joint Project
-              </option>
-
-              <option value="Church/NGO Collaboration">
-                Church/NGO Collaboration
-              </option>
-            </select>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-wider font-bold text-gray-700">
-              Partnership Proposal
-            </label>
-
-            <textarea
-              rows={5}
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              placeholder="Tell us about your organization and how you'd like to collaborate with Parakletus..."
-              className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl outline-none transition-all focus:border-green-500 text-gray-900"
-            />
-          </div>
+          <textarea
+            name="message"
+            rows={5}
+            placeholder="Tell us about your partnership proposal..."
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="w-full rounded-xl border p-4"
+          />
 
           <button
             type="submit"
             disabled={status.loading}
-            className="w-full py-5 bg-green-600 text-white font-bold rounded-2xl hover:bg-green-700 transition-all shadow-lg shadow-green-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-xl bg-green-600 py-4 text-white font-bold hover:bg-green-700 disabled:opacity-50"
           >
-            {status.loading
-              ? "Submitting Partnership Inquiry..."
-              : "Become a Partner"}
+            {status.loading ? "Submitting..." : "Submit Partnership Request"}
           </button>
+
         </form>
       </div>
     </section>

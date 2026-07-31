@@ -14,7 +14,7 @@ import FinalCTA from "./cat";
 import Footer from "@/src/component/footer";
 import Navbar from "@/src/component/navbar";
 import InstituteHero from "./institutehero";
-import Course from "@/src/pages/course";
+
 
 export default function Index() {
   return (
@@ -23,7 +23,7 @@ export default function Index() {
       <Hero />
       <Intro />
           <InstituteHero />
-          <Course />
+          
       
       {/* Primary Pillars */}
       <LawJustice />
