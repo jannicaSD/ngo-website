@@ -35,8 +35,8 @@ export default function ContactDetails() {
             </div>
             <h3 className="font-bold text-slate-900 mb-2">Email</h3>
             <div className="text-sm text-slate-600 space-y-1">
-              <a href="mailto:info@parakletus.org" className="block hover:text-green-700 transition-colors">info@parakletus.org</a>
-              <a href="mailto:support@parakletus.org" className="block hover:text-green-700 transition-colors">support@parakletus.org</a>
+              <a href="mailto:info@parakletus.com" className="block hover:text-green-700 transition-colors">info@parakletus.com</a>
+              <a href="mailto:support@parakletus.com" className="block hover:text-green-700 transition-colors">support@parakletus.com</a>
             </div>
           </div>
 
