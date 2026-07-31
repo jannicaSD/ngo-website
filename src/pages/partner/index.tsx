@@ -6,7 +6,8 @@ import { WhyPartnerWithUs } from "./whypartner";
 import { PartnerOpportunities } from "./partneropp";
 import { WhyPartner } from "./partner";
 import { PartnershipProcess } from "./process";
-import {PartnershipForm} from "./partnershipform"
+import  PartnershipForm  from "./partnershipform";
+
 
 
 export default function Index() {

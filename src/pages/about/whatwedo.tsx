@@ -1,12 +1,42 @@
 import Image from 'next/image';
 
 const services = [
-  { title: "Education", description: "Empowering youth through school support, learning resources, and leadership development programs.", image: "/images/about/education.jpg" },
-  { title: "Healthcare", description: "Providing vital medical outreach, health awareness, and community wellness initiatives.", image: "/images/about/healthcare.jpg" },
-  { title: "Community Development", description: "Supporting sustainable livelihoods, clean water, and economic empowerment for all.", image: "/images/about/community.jpg" },
-  { title: "Humanitarian Relief", description: "Responding to urgent needs with food distribution, shelter, and essential support systems.", image: "/images/about/relief.jpg" },
-  { title: "Women & Youth", description: "Equipping women and young people with practical life skills and leadership training.", image: "/images/about/women.jpg" },
-  { title: "Spiritual Development", description: "Strengthening community foundations through discipleship, counseling, and faith-based support.", image: "/images/about/spiritual.jpg" },
+  {
+    title: "Education",
+    description:
+      "Empowering youth through school support, learning resources, and leadership development programs.",
+    image: "/g4.jpeg",
+  },
+  {
+    title: "Healthcare",
+    description:
+      "Providing vital medical outreach, health awareness, and community wellness initiatives.",
+    image: "/g19.jpeg",
+  },
+  {
+    title: "Community Development",
+    description:
+      "Supporting sustainable livelihoods, clean water, and economic empowerment for all.",
+    image: "/g7.jpeg",
+  },
+  {
+    title: "Humanitarian Relief",
+    description:
+      "Responding to urgent needs with food distribution, shelter, and essential support systems.",
+    image: "/g21.jpeg",
+  },
+  {
+    title: "Women & Youth",
+    description:
+      "Equipping women and young people with practical life skills and leadership training.",
+    image: "/g15.jpeg",
+  },
+  {
+    title: "Spiritual Development",
+    description:
+      "Strengthening community foundations through discipleship, counseling, and faith-based support.",
+    image: "/g22.jpeg",
+  },
 ];
 
 export default function WhatWeDo() {

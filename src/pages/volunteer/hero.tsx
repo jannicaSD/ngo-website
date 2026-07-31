@@ -1,4 +1,6 @@
 import { ArrowRight, Mail } from "lucide-react";
+import Link from "next/link";
+
 
 export function Hero() {
   return (
@@ -26,9 +28,11 @@ export function Hero() {
           <button className="flex items-center justify-center gap-2 px-10 py-5 bg-green-600 text-white rounded-2xl font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-200">
             Become a Volunteer <ArrowRight size={20} />
           </button>
-          <button className="flex items-center justify-center gap-2 px-10 py-5 bg-white text-gray-900 border border-gray-200 rounded-2xl font-bold hover:border-green-600 hover:text-green-700 transition-all">
-            Contact Us <Mail size={20} />
-          </button>
+         <Link href="/contact">
+  <button className="flex items-center justify-center gap-2 px-10 py-5 bg-white text-gray-900 border border-gray-200 rounded-2xl font-bold hover:border-green-600 hover:text-green-700 transition-all">
+    Contact Us <Mail size={20} />
+  </button>
+</Link>
         </div>
       </div>
     </section>

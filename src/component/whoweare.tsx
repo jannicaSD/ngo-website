@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import WhoWeAreImage from '@/public/whoweare.jpg'; // Optional: Use static import
+import WhoWeAreImage from '@/public/g5.jpeg'; // Optional: Use static import
 
 export default function WhoWeAre() {
   return (

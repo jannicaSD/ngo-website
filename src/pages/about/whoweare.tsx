@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import WhoWeAreImage from '../../../public/whoweare.jpg';
+import WhoWeAreImage from '../../../public/g14.jpeg';
 
 export default function WhoWeAre() {
   return (

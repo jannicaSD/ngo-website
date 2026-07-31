@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function PartnershipForm() {
+export default function PartnershipForm() {
   const [formData, setFormData] = useState({
     organizationName: "",
     contactPerson: "",

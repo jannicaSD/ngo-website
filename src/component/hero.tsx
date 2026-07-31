@@ -16,7 +16,7 @@ const slides = [
     secondary: { label: "Get Legal Support", href: "/contact" }, 
   },
   {
-    image: "slide-2.jpg",
+    image: "g6.jpeg",
     headline: "Building Hope Through Action",
     text: "Empowering communities through education, legal awareness, and sustainable development.",
     // Change #programs to /program

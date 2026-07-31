@@ -1,9 +1,14 @@
 import dbConnect from "../../lib/dbConnect"; 
 import Volunteer from "../../models/Volunteer";
 import { volunteerSchema } from "../../lib/validation";
-import { resend } from "../../lib/resend";
+import { sendEmail } from "../../lib/resend";
 
-export default async function handler(req, res) {
+import type { NextApiRequest, NextApiResponse } from "next";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, error: `Method '${req.method}' Not Allowed` });
   }
@@ -25,12 +30,11 @@ export default async function handler(req, res) {
     // 3. Save to Database
     const newVolunteer = await Volunteer.create(validData);
 
-    // 4. Send Email Notifications via Resend (Non-blocking or caught separately so it doesn't break form submission if email fails)
+    // 4. Send Email Notifications via Resend helper
     try {
-      // A. Send notification email to NGO
-      await resend.emails.send({
-        from: process.env.NGO_SENDER_EMAIL || "Parakletus <onboarding@resend.dev>",
-        to: "volunteer@parakletus.com",
+      // A. Send notification email to NGO admin
+      await sendEmail({
+        to: process.env.ADMIN_VOLUNTEER_EMAIL || "volunteer@parakletus.com",
         subject: `New Volunteer Application: ${validData.name} (${validData.areaOfInterest})`,
         html: `
           <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
@@ -51,8 +55,7 @@ export default async function handler(req, res) {
       });
 
       // B. Send auto-reply confirmation email to the applicant
-      await resend.emails.send({
-        from: process.env.NGO_SENDER_EMAIL || "Parakletus <onboarding@resend.dev>",
+      await sendEmail({
         to: validData.email,
         subject: "We've received your volunteer application - Parakletus",
         html: `
@@ -68,7 +71,7 @@ export default async function handler(req, res) {
       });
     } catch (emailError) {
       console.error("Resend Email Dispatch Error:", emailError);
-      // Note: We log the email error but allow the request to succeed since data is safely saved in MongoDB.
+      // Note: Request still succeeds since data is safely stored in MongoDB.
     }
 
     // 5. Return Success Response

@@ -1,9 +1,14 @@
 import dbConnect from "../../lib/dbConnect"; 
 import Partnership from "../../models/Partnership";
 import { partnershipSchema } from "../../lib/validation";
-import { resend } from "../../lib/resend";
+import { sendEmail } from "../../lib/resend";
 
-export default async function handler(req, res) {
+import type { NextApiRequest, NextApiResponse } from "next";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, error: `Method '${req.method}' Not Allowed` });
   }
@@ -26,49 +31,47 @@ export default async function handler(req, res) {
     const newPartnership = await Partnership.create(validData);
 
     // 4. Send Email Notifications via Resend
+       // 4. Send Email Notifications
     try {
-      // A. Send notification email to NGO inbox
-      await resend.emails.send({
-        from: process.env.NGO_SENDER_EMAIL || "Parakletus <onboarding@resend.dev>",
-        to: "volunteer@parakletus.com", // Change or use environment variable if preferred
-        subject: `New Partnership Inquiry: ${validData.organizationName} (${validData.partnershipInterest})`,
+      // Notify NGO
+      await sendEmail({
+        to: process.env.ADMIN_VOLUNTEER_EMAIL!,
+        subject: `New Partnership Inquiry: ${validData.organizationName}`,
         html: `
-          <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-            <h2 style="color: #16a34a;">New Partnership Inquiry</h2>
-            <p>You have received a new collaboration inquiry through the website form:</p>
-            <hr style="border: none; border-top: 1px solid #eee;" />
-            <p><strong>Organization Name:</strong> ${validData.organizationName}</p>
-            <p><strong>Contact Person:</strong> ${validData.contactPerson}</p>
-            <p><strong>Email:</strong> ${validData.email}</p>
-            <p><strong>Phone:</strong> ${validData.phone}</p>
-            <p><strong>Partnership Interest:</strong> ${validData.partnershipInterest}</p>
-            <p><strong>Message:</strong></p>
-            <blockquote style="background: #f9f9f9; padding: 10px 15px; border-left: 4px solid #16a34a; margin: 0;">
-              ${validData.message}
-            </blockquote>
-          </div>
+          <h2>New Partnership Inquiry</h2>
+
+          <p><strong>Organization:</strong> ${validData.organizationName}</p>
+          <p><strong>Contact Person:</strong> ${validData.contactPerson}</p>
+          <p><strong>Email:</strong> ${validData.email}</p>
+          <p><strong>Phone:</strong> ${validData.phone}</p>
+          <p><strong>Interest:</strong> ${validData.partnershipInterest}</p>
+
+          <p><strong>Message:</strong></p>
+          <p>${validData.message}</p>
         `,
       });
 
-      // B. Send auto-reply confirmation email to the partner
-      await resend.emails.send({
-        from: process.env.NGO_SENDER_EMAIL || "Parakletus <onboarding@resend.dev>",
+      // Auto reply
+      await sendEmail({
         to: validData.email,
         subject: "We've received your partnership inquiry - Parakletus",
         html: `
-          <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-            <h2 style="color: #16a34a;">Thank you for reaching out, ${validData.contactPerson}!</h2>
-            <p>We have successfully received your partnership request regarding <strong>${validData.partnershipInterest}</strong> for <strong>${validData.organizationName}</strong>.</p>
-            <p>Our team is reviewing your proposal and will get back to you shortly.</p>
-            <br/>
-            <p>Warm regards,</p>
-            <p><strong>Parakletus Team</strong></p>
-          </div>
+          <h2>Thank you, ${validData.contactPerson}!</h2>
+
+          <p>We have received your partnership inquiry.</p>
+
+          <p>
+            Our team will review your request and contact you shortly.
+          </p>
+
+          <br />
+
+          <p>Regards,</p>
+          <strong>Parakletus Team</strong>
         `,
       });
     } catch (emailError) {
-      console.error("Resend Email Dispatch Error:", emailError);
-      // We log the email error but allow the request to succeed since data is safely saved in MongoDB.
+      console.error("Resend Email Error:", emailError);
     }
 
     // 5. Return Success Response
@@ -80,6 +83,10 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error("Partnership API Error:", error);
-    return res.status(500).json({ success: false, error: "Internal Server Error." });
+
+    return res.status(500).json({
+      success: false,
+      error: "Internal Server Error.",
+    });
   }
 }

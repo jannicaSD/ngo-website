@@ -1,4 +1,6 @@
 import { Handshake, Mail } from "lucide-react";
+import Link from "next/link";
+
 
 export function Hero() {
   return (
@@ -23,12 +25,14 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="flex items-center justify-center gap-2 px-10 py-5 bg-green-600 text-white rounded-2xl font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-200">
-            <Handshake size={20} /> Become a Partner
-          </button>
-          <button className="flex items-center justify-center gap-2 px-10 py-5 bg-white text-gray-900 border border-gray-200 rounded-2xl font-bold hover:border-green-600 hover:text-green-700 transition-all">
-            Contact Us <Mail size={20} />
-          </button>
+  <button id="partnership-form" className="flex items-center justify-center gap-2 px-10 py-5 bg-green-600 text-white rounded-2xl font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-200">
+  <Handshake size={20} /> Become a Partner
+</button>
+          <Link href="/contact">
+            <button className="flex items-center justify-center gap-2 px-10 py-5 bg-white text-gray-900 border border-gray-200 rounded-2xl font-bold hover:border-green-600 hover:text-green-700 transition-all">
+              Contact Us <Mail size={20} />
+            </button>
+          </Link>
         </div>
       </div>
     </section>

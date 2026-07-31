@@ -11,13 +11,13 @@ export default function WomenEmpower() {
   ];
 
   return (
-    <section className="py-24 bg-rose-50/30 px-6">
+    <section className="py-24 bg-gradient-to-b from-green-50/40 to-white px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Content Column */}
           <div className="space-y-8">
-            <span className="text-rose-600 font-bold uppercase tracking-[0.2em] text-xs">
+            <span className="text-green-600 font-bold uppercase tracking-[0.2em] text-xs px-3 py-1 bg-green-100/60 rounded-full border border-green-200">
               Women Empowerment
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
@@ -27,8 +27,10 @@ export default function WomenEmpower() {
               Women are essential to strong families and thriving communities. Parakletus promotes dignity, education, leadership, and equal opportunities by supporting women through training, mentorship, legal awareness, and community engagement.
             </p>
             
-            <div className="p-6 bg-white rounded-2xl border border-rose-100 shadow-sm">
-              <p className="text-gray-800 font-medium italic">
+            <div className="p-6 bg-white rounded-2xl border border-green-100 shadow-sm relative overflow-hidden">
+              {/* Subtle gold accent bar on the left */}
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-amber-400" />
+              <p className="text-gray-800 font-medium italic pl-2">
                 &quot;When a woman is empowered, she transforms not just her family, but her entire community.&quot;
               </p>
             </div>
@@ -39,9 +41,9 @@ export default function WomenEmpower() {
             {initiatives.map((item, i) => (
               <div 
                 key={i} 
-                className="flex flex-col items-center justify-center p-8 bg-white rounded-3xl border border-rose-100 hover:shadow-xl transition-all duration-300 group"
+                className="flex flex-col items-center justify-center p-8 bg-white rounded-3xl border border-green-100/80 hover:border-green-300 hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mb-4 group-hover:bg-rose-500 group-hover:text-white transition-colors">
+                <div className="w-12 h-12 rounded-full bg-green-50 text-green-600 flex items-center justify-center mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors">
                   <item.icon size={22} />
                 </div>
                 <h4 className="font-bold text-gray-900 text-center text-sm">{item.title}</h4>

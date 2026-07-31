@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -62,10 +63,23 @@ export default function Navbar() {
           }`}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg tracking-tight z-50">
-            <div className={`h-9 w-9 flex items-center justify-center rounded-lg ${isSticky ? "bg-green-700 text-white" : "bg-white text-green-700"}`}>P</div>
-            PARAKLETUS
-          </Link>
+         <Link
+  href="/"
+  className="flex items-center gap-3 font-bold text-lg tracking-tight z-50"
+>
+  <Image
+    src="/logo1.png"
+    alt="Parakletus Logo"
+    width={48}
+    height={48}
+    className="object-contain"
+    priority
+  />
+
+  <span className={isSticky ? "text-slate-900" : "text-white"}>
+    PARAKLETUS
+  </span>
+</Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex gap-2 items-center h-full">
