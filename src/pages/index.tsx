@@ -11,9 +11,9 @@ import WhyChooseUs from "../component/why-chooseus";
 import ImpactSection from "../component/impact";
 import SuccessStories from "../component/sucessstories";
 import LatestNews from "../component/latest-news";
-import Partners from "../component/partner";
+// import Partners from "../component/partner";
 import CTASection from "../component/cat"; // Fixed naming convention
-import VoiceGuide from "../component/VoiceGuide";
+// import VoiceGuide from "../component/VoiceGuide";
 
 export default function Index() {
   return (
@@ -45,13 +45,13 @@ export default function Index() {
       <LatestNews />
 
       {/* 9. Partners & Sponsors */}
-      <Partners />
+      {/* <Partners /> */}
 
       {/* 10. Final CTA Banner */}
       <CTASection />
 
       <Footer />
-      <VoiceGuide />
+      {/* <VoiceGuide /> */}
     </main>
   );
 }
